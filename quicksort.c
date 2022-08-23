@@ -37,8 +37,8 @@ void printVector(int *vector, size_t size)
 
 void dumpInFile(FILE *__file, struct timing *time)
 {
-	__file = fopen("time.dump", "w");
-	fprintf(__file, "[x] Ordenated vector[%d] positions with rand range = %d in: %lf seconds\n", time->vector_size, time->final, time->rand_max);
+	__file = fopen("time.dump", "a");
+	fprintf(__file, "[x] Ordenated vector[%ld] positions with rand range = %d in: %lf seconds\n", time->vector_size, time->rand_max, time->final);
 	fclose(__file);
 }
 

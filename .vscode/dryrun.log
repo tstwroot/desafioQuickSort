@@ -1,0 +1,7 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/tstwroot/desafioQuickSort'
+gcc -g -c quicksort.c
+gcc main.c quicksort.o
+rm quicksort.o
+make: Leaving directory '/home/tstwroot/desafioQuickSort'
+ 
