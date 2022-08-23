@@ -17,6 +17,12 @@ double getTimeExec(struct timing *time, char *point)
 	}
 }
 
+void getDimensionsOfVector(struct timing *__time, int __size, int __max)
+{
+	__time->vector_size = __size;
+    __time->rand_max = __max;
+}
+
 void printVector(int *vector, size_t size)
 {
 	fprintf(stdout, "Vector[");
@@ -27,6 +33,13 @@ void printVector(int *vector, size_t size)
 		else
 			fprintf(stdout, "%d,", vector[i]);
 	}
+}
+
+void dumpInFile(FILE *__file, struct timing *time)
+{
+	__file = fopen("time.dump", "w");
+	fprintf(__file, "[x] Ordenated vector[%d] positions with rand range = %d in: %lf seconds\n", time->vector_size, time->final, time->rand_max);
+	fclose(__file);
 }
 
 void usage()

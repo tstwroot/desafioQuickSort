@@ -4,7 +4,9 @@
 struct timing 
 {
 	clock_t start, end;
-	long double final;
+	double final;
+	size_t vector_size;
+	int rand_max;
 };
 
 void swap(int *, int *);
@@ -15,5 +17,7 @@ void fillWithRandNums(int *, size_t, int);
 void usage();
 void printVector(int *, size_t);
 double getTimeExec(struct timing *, char *);
+void dumpInFile(FILE *, struct timing*);
+void getDimensionsOfVector(struct timing*, int, int);
 
 #endif
