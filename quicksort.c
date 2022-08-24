@@ -88,16 +88,19 @@ void quicksort(int *vector, int start, int end)
 		{											// que o pivo
 			i++;
 		}
+
 		while (vector[j] > pivo && j > start) 		// faz a verificação do elemento posição j se ele é menor que
 		{									  		// que o pivo
 			j--;
 		}
-		if (i <= j) 								// se a flag i for menor e j ele chama a função swap
+
+		if (i <= j)									// se a flag i for menor e j ele chama a função swap
 		{											// que seriaa troca de elementos
 			swap(vector + i, vector + j);
 			i++;
 			j--;
 		}
+		
 	}
 	if (j > start)
 		quicksort(vector, start, j + 1);
