@@ -101,3 +101,187 @@ void quicksort(int *vector, int start, int end)
 	if(i < end)
 		quicksort(vector, i, end);
 }
+
+//quick auxliar pivos trocados depois de cada alteração -> mais rapido e 
+// void quicksort(int *vector, int start, int end)
+// {
+// 	int i = start, j = end-1;
+// 	int pivo = vector[(start + i) / 2];
+
+// 	while(i <= j)
+// 	{
+// 		while(vector[i] < pivo && i < end)
+// 		{
+// 			i++;
+// 		}
+// 		while(vector[j] > pivo && j > start)
+// 		{
+// 			j--;
+// 		}
+// 		if(i <= j)
+// 		{
+//             swap(vector+i, vector+j);
+// 			i++;
+// 			j--;
+// 		}
+// 	}
+// 	if(j > start)
+// 		quicksort(vector, start, j+1);
+// 	if(i < end)
+// 		quicksort(vector, i, end);
+// }
+
+//terceira versao (mais lento)
+// void quicksort(int *vector, int start, int end)
+// {
+// 	int i = start, j = end-1;
+// 	int pivo = vector[(start + j) / 2];
+
+// 	while(i <= j)
+// 	{
+// 		while(vector[i] < pivo && i < end)
+// 		{
+// 			i++;
+// 		}
+// 		while(vector[j] > pivo && j > start)
+// 		{
+// 			j--;
+// 		}
+// 		if(i <= j)
+// 		{
+//             swap(vector+i, vector+j);
+// 			i++;
+// 			j--;
+// 		}
+// 	}
+// 	if(j > start)
+// 		quicksort(vector, start, j+1);
+// 	if(i < end)
+// 		quicksort(vector, i, end);
+// }
+
+// //versão 4 mais rapido ordenado
+// void quicksort(int *vector, int start, int end)
+// {
+// 	int i = start, j = end-1;
+// 	int pivo = vector[(i + j) / 2];
+
+// 	while(i <= j)
+// 	{
+// 		while(vector[i] < pivo && i < end)
+// 		{
+// 			i++;
+// 		}
+// 		while(vector[j] > pivo && j > start)
+// 		{
+// 			j--;
+// 		}
+// 		if(i <= j)
+// 		{
+//             swap(vector+i, vector+j);
+// 			i++;
+// 			j--;
+// 		}
+// 	}
+// 	if(j > start)
+// 		quicksort(vector, start, j+1);
+// 	if(i < end)
+// 		quicksort(vector, i, end);
+// }
+
+
+///nao tao efciente
+// void quicksort(int *vector, int start, int end)
+// {
+// 	int i = start, j = end-1;
+// 	int pivo = vector[(end - i) / 2];
+
+// 	while(i <= j)
+// 	{
+// 		while(vector[i] < pivo && i < end)
+// 		{
+// 			i++;
+// 		}
+// 		while(vector[j] > pivo && j > start)
+// 		{
+// 			j--;
+// 		}
+// 		if(i <= j)
+// 		{
+//             swap(vector+i, vector+j);
+// 			i++;
+// 			j--;
+// 		}
+// 	}
+// 	if(j > start)
+// 		quicksort(vector, start, j+1);
+// 	if(i < end)
+// 		quicksort(vector, i, end);
+// }
+
+
+// void particion(int *vector, int start, int end){
+// 	int x = vector[end];
+// 	int i = start - 1
+// }
+
+// void quicksort(int *vector, int start, int end)
+// {
+// 	int i = start, j = end-1;
+// 	int pivo = vector[(i)];
+
+// 	while(i <= j)
+// 	{
+// 		while(vector[i] < pivo && i < end)
+// 		{
+// 			i++;
+// 		}
+// 		while(vector[j] > pivo && j > start)
+// 		{
+// 			j--;
+// 		}
+// 		if(i <= j)
+// 		{
+//             swap(vector+i, vector+j);
+// 			i++;
+// 			j--;
+// 		}
+// 	}
+// 	if(j > start)
+// 		quicksort(vector, start, j+1);
+// 	if(i < end)
+// 		quicksort(vector, i, end);
+// }
+
+
+
+//2pivor
+
+// void quicksort(int *vector, int start, int end)
+// {
+// 	int i = start, j = end-1;
+// 	int pivo = vector[() / 2];
+
+// 	while(i <= j)
+// 	{
+// 		while(vector[i] < pivo && i < end)
+// 		{
+// 			i++;
+// 		}
+// 		while(vector[j] > pivo && j > start)
+// 		{
+// 			j--;
+// 		}
+// 		if(i <= j)
+// 		{
+//             swap(vector+i, vector+j);
+// 			i++;
+// 			j--;
+// 		}
+// 	}
+// 	if(j > start)
+// 		quicksort(vector, start, j+1);
+// 	if(i < end)
+// 		quicksort(vector, i, end);
+// }
+

@@ -23,6 +23,7 @@ int main(int argc, char* argv[])
     getTimeExec(time, "start");
     quicksort(vector, 0, size);
     getTimeExec(time, "end");
+    //printVector(vector,size);
     fprintf(stdout, "VETOR NÃO ORDENADO: %lf seconds\n", time->final);
     memset(time, 0, sizeof(time));
     getTimeExec(time, "start");
@@ -30,4 +31,5 @@ int main(int argc, char* argv[])
     getTimeExec(time, "end");
     fprintf(stdout, "VETOR ORDENADO: %lf seconds\n", time->final);
     free(time);
+    destroy(vector);
 }
