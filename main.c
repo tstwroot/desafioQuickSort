@@ -2,32 +2,32 @@
 #include <stdlib.h>
 #include <string.h>
 #include "quicksort.h"
+#include "utils.h"
+#define FUNCTIONS_SIZE 5
 
 int main(int argc, char* argv[])
 {
-    if(argc != 3)
-    {
-        fprintf(stdout, "Invalid arguments!\n");
-        usage();
-        exit(EXIT_FAILURE);
-    }
-
-    int *vector;
-    struct timing *time = (struct timing*)malloc(sizeof(struct timing));
-    int size = atoi(argv[1]), max_rand = atoi(argv[2]);
-    FILE *file;
     
-    vector = create(vector, size);
-    fillWithRandNums(vector, size, max_rand);
-    getDimensionsOfVector(time, size, max_rand);
-    getTimeExec(time, "start");
-    quicksort(vector, 0, size);
-    getTimeExec(time, "end");
-    fprintf(stdout, "VETOR NÃO ORDENADO: %lf seconds\n", time->final);
-    memset(time, 0, sizeof(time));
-    getTimeExec(time, "start");
-    quicksort(vector, 0, size);
-    getTimeExec(time, "end");
-    fprintf(stdout, "VETOR ORDENADO: %lf seconds\n", time->final);
-    free(time);
+    void (*functions[])(int*, int, int) = {
+        quicksort_while,
+        quicksort_whileGoto,
+        quicksort_recursive,
+        quicksort_lib,
+        quicksort_pivot
+        // quicksort_for
+    };
+
+    int **matrix, *v;
+    v = create(10);
+    fillWithRandNums(v, 10, 100);
+    
+    matrix = createMatrix(v, 10, FUNCTIONS_SIZE, 10);
+    for(int i = 0; i < FUNCTIONS_SIZE; i++)
+    {
+        for(int j = 0; j < 10; j++)
+        {
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
 }
