@@ -4,14 +4,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-struct timing 
-{
-	clock_t start, end;
-	double final;
-	unsigned int vector_size;
-	int rand_max;
-};
-
 void swap(int *__n1, int *__n2)
 {
 	int aux = *__n1;
@@ -31,22 +23,22 @@ int *create(unsigned int size)
 }
 
 // Cria uma matriz de inteiros, com linhas randomicas iguais.
-int **createMatrix(int *vector, int sizeI, int sizeJ, int randMax)
+int **createMatrix(int *v,  int sizeI, int sizeJ)
 {
     int **matrix = (int**)malloc(sizeI * sizeof(int*));
     for(int i = 0; i < sizeI; i++)
     {
         matrix[i] = (int*)malloc(sizeJ * sizeof(int));
     }
-    
-    for(int i = 0; i < sizeI; i++)
+	
+	for(int i = 0; i < sizeI; i++)
 	{
         for(int j = 0; j < sizeJ; j++)
         {
-            matrix[i][j] = vector[j];
+            matrix[i][j] = v[j];
         }
 	}
-
+	
 	return(matrix);
 }
 
