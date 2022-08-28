@@ -22,5 +22,7 @@ void getDimensionsOfVector(struct timing *, int, int);
 void quicksort_for(int *, int, int);
 int **createMatrix(int *, int, int);
 int pivot(int, int);
+int get_pivot(int *vetor, unsigned int size);
+
 
 #endif

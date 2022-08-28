@@ -11,6 +11,9 @@
         "ranges": "c",
         "utils.h": "c",
         "stdlib.h": "c",
-        "time.h": "c"
+        "time.h": "c",
+        "random": "c",
+        "limits": "c",
+        "algorithm": "c"
     }
 }

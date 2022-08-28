@@ -4,6 +4,44 @@
 #include <stdlib.h>
 #include <string.h>
 
+//main estados:
+
+
+
+
+
+
+//-----------
+
+int get_pivot(int *vetor, unsigned int size)
+{
+	int maior = 0;
+	for (int i = 0; i < size; i++)
+	{
+		if (vetor[i] > maior)
+		{
+			maior = vetor[i];
+		}
+	}
+
+	int Imelhor, melhor;
+	for (int dif, i = 0; i < size; i++)
+	{
+		dif = abs((vetor[i] - (maior / 2)));
+		if (i == 0)
+			melhor = dif;
+		else
+		{
+			if (dif < melhor)
+			{
+				melhor = dif;
+				Imelhor = i;
+			}
+		}
+	}
+	return Imelhor;
+}
+
 void swap(int *__n1, int *__n2)
 {
 	int aux = *__n1;
@@ -18,35 +56,34 @@ void usage()
 
 int *create(unsigned int size)
 {
-	unsigned int *vector = (unsigned int*)calloc(size, sizeof(unsigned int));
+	unsigned int *vector = (unsigned int *)calloc(size, sizeof(unsigned int));
 	return vector;
 }
 
 // Cria uma matriz de inteiros, com linhas randomicas iguais.
-int **createMatrix(int *v,  int sizeI, int sizeJ)
+int **createMatrix(int *v, int sizeI, int sizeJ)
 {
-    int **matrix = (int**)malloc(sizeI * sizeof(int*));
-    for(int i = 0; i < sizeI; i++)
-    {
-        matrix[i] = (int*)malloc(sizeJ * sizeof(int));
-    }
-	
-	for(int i = 0; i < sizeI; i++)
+	int **matrix = (int **)malloc(sizeI * sizeof(int *));
+	for (int i = 0; i < sizeI; i++)
 	{
-        for(int j = 0; j < sizeJ; j++)
-        {
-            matrix[i][j] = v[j];
-        }
+		matrix[i] = (int *)malloc(sizeJ * sizeof(int));
 	}
-	
-	return(matrix);
+
+	for (int i = 0; i < sizeI; i++)
+	{
+		for (int j = 0; j < sizeJ; j++)
+		{
+			matrix[i][j] = v[j];
+		}
+	}
+
+	return (matrix);
 }
 
 void destroy(int *vector)
 {
 	free(vector);
 }
-
 
 void printTime(struct timing *time)
 {
@@ -83,7 +120,7 @@ double getTimeExec(struct timing *time, char *point)
 	if (strcmp(point, "end") == 0)
 	{
 		time->end = clock();
-		return(time->final = (double)(time->end - time->start) / CLOCKS_PER_SEC);
+		return (time->final = (double)(time->end - time->start) / CLOCKS_PER_SEC);
 	}
 }
 
@@ -93,12 +130,16 @@ void getDimensionsOfVector(struct timing *__time, int __size, int __max)
 	__time->rand_max = __max;
 }
 
-
 int pivot(int left, int right)
 {
 	srand(time(NULL));
-    int range = right - left + 1;
-    int pivot = rand() % range;
-    
-    return(pivot);
+	
+	int range = abs(left - right);
+	
+	if (range == 0) range = 1;
+	
+	int pivot = rand() % range;
+
+	return pivot;
 }
+
