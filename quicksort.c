@@ -6,7 +6,6 @@
 
 int cormenPartition(int *A, int inicio, int fim)
 {
-   
     int pivo = A[fim];
     int i = inicio - 1;
     int j;
@@ -101,46 +100,23 @@ void quicksort_lib(int *vector, int start, int end)
 		{									  // que o pivo
 			j--;
 		}
-		if (i <= j) // se a flag i for menor e j ele chama a função swap
-		{			// que seriaa troca de elementos
+		if (i <= j) 							// se a flag i for menor e j ele chama a função swap
+		{										// que seriaa troca de elementos
 			swap(vector + i, vector + j);
-			i++; // incrementa o i para poder realizar as interações apos a realizção da troca
-			j--; // incrementa o j para poder realizar as interações apos a realizção da troca
+			i++; 								// incrementa o i para poder realizar as interações apos a realizção da troca
+			j--; 								// incrementa o j para poder realizar as interações apos a realizção da troca
 		}
 	}
-	if (j > start)							 // se casoo j ainda for maior que o inicio ele faz uma chamada recursivo passando
-		quicksort_lib(vector, start, j + 1); // o inicio como a referencia e j+1 como o novo final;
-	if (i < end)							 // se o i ainda for menor que o final ele passa o inicio comk a posição i
-		quicksort_lib(vector, i, end);		 // e o final como final
-}
-
-void quicksort_whileGoto(int *vector, int start, int end)
-{
-	int i = start, j = end - 1;
-	int pivo = vector[(start + end) / 2];
-
-i1:
-	while (vector[i] < pivo && i < end)
-		i++;
-	while (vector[j] > pivo && j > start)
-		j--;
-	if (i <= j)
-	{
-		swap(vector + i, vector + j);
-		i++, j--;
-	}
-	if (i <= j)
-		goto i1;
-	if (j > start)
-		quicksort_whileGoto(vector, start, j + 1);
-	if (i < end)
-		quicksort_whileGoto(vector, i, end);
+	if (j > start)							 	// se casoo j ainda for maior que o inicio ele faz uma chamada recursivo passando
+		quicksort_lib(vector, start, j + 1); 	// o inicio como a referencia e j+1 como o novo final;
+	if (i < end)							 	// se o i ainda for menor que o final ele passa o inicio comk a posição i
+		quicksort_lib(vector, i, end);		 	// e o final como final
 }
 
 void quicksort_whileGotoReasonPivot(int *vector, int start, int end)
 {
 	int i = start, j = end - 1;
-	unsigned int pivo = vector[(end * start) / end + start];
+	unsigned int pivo = vector[abs(((end *start)  / (end + start) ) - (j - i))];
 i1:
 	while (vector[i] < pivo && i < end)
 		i++;
@@ -154,20 +130,22 @@ i1:
 	if (i <= j)
 		goto i1;
 	if (j > start)
-		quicksort_whileGoto(vector, start, j + 1);
+		quicksort_whileGotoReasonPivot(vector, start, j);
 	if (i < end)
-		quicksort_whileGoto(vector, i, end);
+		quicksort_whileGotoReasonPivot(vector, i, end);
 }
 
-void quicksort_whileGoto2(int *vector, int start, int end)
+void quicksort_Goto(int *vector, int start, int end)
 {
 	int i = start, j = end - 1;
-	unsigned int pivo = vector[(end * start) / end + start];
+	int pivo = vector[(start + end) / 2];
 i1:
-	while (vector[i] < pivo && i < end)
+	w1:
 		i++;
-	while (vector[j] > pivo && j > start)
+		if(vector[i] < pivo && i < end) goto w1;
+	w2:
 		j--;
+		if(vector[j] > pivo && j > start) goto w2;
 	if (i <= j)
 	{
 		swap(vector + i, vector + j);
@@ -176,9 +154,9 @@ i1:
 	if (i <= j)
 		goto i1;
 	if (j > start)
-		quicksort_whileGoto(vector, start, j + 1);
+		quicksort_Goto(vector, start, j + 1);
 	if (i < end)
-		quicksort_whileGoto(vector, i, end);
+		quicksort_Goto(vector, i, end);
 }
 
 void quicksort_for(int *vector, int start, int end)
@@ -201,7 +179,7 @@ void quicksort_for(int *vector, int start, int end)
 	if (i < end)
 		quicksort_for(vector, i, end);
 }
-/*
+
  void quicksort_pivot(int *vector, int start, int end)
  {
 	int i = start, j = end - 1;
@@ -229,4 +207,3 @@ void quicksort_for(int *vector, int start, int end)
 	if (i < end)
 		quicksort_pivot(vector, i, end);
  }
- */

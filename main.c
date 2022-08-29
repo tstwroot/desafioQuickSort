@@ -5,20 +5,20 @@
 #include "utils.h"
 #include <math.h>
 
-#define FUNCTIONS_SIZE 3
-#define SIZE 1000
-#define AMOSTRAS 100
+#define FUNCTIONS_SIZE 2
+#define SIZE 1000000
+#define AMOSTRAS 1
 
 int main(int argc, char* argv[])
 {
     void (*functions[])(int*, int, int) = {
         quicksort_lib,
-        quicksort_whileGotoReasonPivot,
-        quicksortCormen
-        // quicksort_whileGoto,
+        Aquicksort
+        // quicksort_Goto,
+        // quicksort_whileGotoReasonPivot,
+        // quicksortCormen,
         // quicksort_mp,
         // quicksort_recursive
-        // quicksort_pivot,
     };
 
     int *v = create(SIZE);
@@ -36,7 +36,6 @@ int main(int argc, char* argv[])
             (*functions[i])(matrix[i], 0, SIZE-1);
             getTimeExec(time, "end");
             amostras[i][j] = time->final;
-            // printVector(matrix[i], SIZE);
             memset(time, 0, sizeof(time));
         }
     }

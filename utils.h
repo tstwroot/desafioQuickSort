@@ -10,7 +10,7 @@ struct timing
 	int rand_max;
 };
 
-int *create(unsigned int);
+int *create(int size);
 void swap(int *, int *);
 void usage();
 void destroy(int *);
@@ -23,6 +23,9 @@ void quicksort_for(int *, int, int);
 int **createMatrix(int *, int, int);
 int pivot(int, int);
 int get_pivot(int *vetor, unsigned int size);
+void swap(int *, int *);
+void invertVector(int vector[], int size);
+
 
 
 #endif

@@ -14,6 +14,15 @@
         "time.h": "c",
         "random": "c",
         "limits": "c",
-        "algorithm": "c"
+        "algorithm": "c",
+        "cstdlib": "c",
+        "bitset": "c",
+        "span": "c",
+        "regex": "c",
+        "utility": "c",
+        "valarray": "c",
+        "forward_list": "c",
+        "list": "c",
+        "unordered_set": "c"
     }
 }

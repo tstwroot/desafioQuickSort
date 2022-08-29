@@ -4,15 +4,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-//main estados:
-
-
-
-
-
-
-//-----------
-
 int get_pivot(int *vetor, unsigned int size)
 {
 	int maior = 0;
@@ -54,9 +45,9 @@ void usage()
 	puts("USAGE: quicksort <size of vector> <max rand>");
 }
 
-int *create(unsigned int size)
+int *create(int size)
 {
-	unsigned int *vector = (unsigned int *)calloc(size, sizeof(unsigned int));
+	int *vector = (int *)calloc(size, sizeof(int));
 	return vector;
 }
 
@@ -143,3 +134,16 @@ int pivot(int left, int right)
 	return pivot;
 }
 
+void invertVector(int vector[], int size)
+{
+    for (int i = size; i > 0; i--)
+    {
+        for (int j = 0; j < size; j++)
+        {
+            if (vector[j] < vector[j + 1])
+            {
+                swap(&vector[j], &vector[j + 1]);
+            }
+        }
+    }
+}
