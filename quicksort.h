@@ -11,8 +11,8 @@ void quicksort_for(int *vector, int start, int end);
 void quicksort_whileGotoReasonPivot(int *vector, int start, int end);
 void quicksort_Goto(int *vector, int start, int end);
 
-void Aquicksort(int *a, int low, int high);
-void TWP(int arr[], int m, int n, int &begin, int &end);
+void myquick(int *vector, int start, int end);
+int mypartition(int *vector, int start, int end);
 
 void quicksortCormen(int *A, int inicio, int fim);
 int cormenPartition(int *A, int inicio, int fim);

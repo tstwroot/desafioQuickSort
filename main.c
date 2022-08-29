@@ -6,23 +6,35 @@
 #include <math.h>
 
 #define FUNCTIONS_SIZE 2
-#define SIZE 1000000
-#define AMOSTRAS 1
+#define SIZE 100000
+#define AMOSTRAS 10
 
 int main(int argc, char* argv[])
 {
     void (*functions[])(int*, int, int) = {
         quicksort_lib,
-        Aquicksort
+        quicksortCormen
         // quicksort_Goto,
         // quicksort_whileGotoReasonPivot,
-        // quicksortCormen,
         // quicksort_mp,
         // quicksort_recursive
     };
 
     int *v = create(SIZE);
-    fillWithRandNums(v, SIZE, 1000);
+
+    // for para criar vetor ordenado invertido
+    // for(int j = 0, i = SIZE; i > 0; i--, j++)
+    // {
+    //     v[j] = i;
+    // }
+
+    // for para criar vetor ordenado
+    // for(int i = 0; i < SIZE; i++)
+    // {
+    //     v[i] = i;
+    // }
+
+    // fillWithRandNums(v, SIZE, 1000);
     
     int **matrix = createMatrix(v, FUNCTIONS_SIZE, SIZE);
     struct timing *time = (struct timing*)malloc(sizeof(struct timing));
@@ -33,7 +45,7 @@ int main(int argc, char* argv[])
         for(int j = 0; j < AMOSTRAS; j++)
         {
             getTimeExec(time, "start");
-            (*functions[i])(matrix[i], 0, SIZE-1);
+            (*functions[i])(matrix[i], 0, SIZE);
             getTimeExec(time, "end");
             amostras[i][j] = time->final;
             memset(time, 0, sizeof(time));
@@ -64,6 +76,5 @@ int main(int argc, char* argv[])
         }
         printf("Media da função[%d]: \t%.8lf\n", i+1, medias[i]);
     }
-
     printf("FUNÇÃO GANHADORA[%d]: \t%.8lf\n", best+1, bestTime);
 }
